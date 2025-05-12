@@ -5,566 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SmartPrint 5000 - Printer for Everyone</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #000000;
-    }
-
-    /* Navbar Styles */
-    nav {
-      background-color: #0011fd !important;
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      position: fixed;
-    }
-
-    .nav-logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Header */
-    header {
-      color: #000;
-      padding: 60px 40px;
-      text-align: center;
-    }
-
-    .hero {
-      padding: 50px 20px;
-      background: linear-gradient(to right, #007BFF, #0056b3);
-      color: white;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .features {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      transition: transform 0.2s;
-    }
-
-    .card:hover {
-      transform: scale(1.02);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: #007BFF;
-    }
-
-    .details {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      line-height: 1.6;
-    }
-
-    footer {
-      background-color: #0011fd;
-      color: white;
-      text-align: center;
-      padding: 30px 10px;
-      margin-top: 40px;
-    }
-
-    .btn {
-      background-color: #007BFF;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-
-    .btn:hover {
-      background-color: #0056b3;
-    }
-
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .modal-content {
-      background-color: white;
-      margin: 10% auto;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .close {
-      float: right;
-      font-size: 24px;
-      cursor: pointer;
-      color: #aaa;
-    }
-
-    .close:hover {
-      color: #000;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-      }
-    }
-
-
-    nav {
-      background-color: #1f1f1f;
-      color: white;
-      padding: 15px 30px;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      /* margin: 0 auto; */
-      gap: 55px;
-    }
-
-    .nav-logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
-
-    .nav-toggle {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-    }
-
-    /* Responsive Nav */
-    @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-container {
-        gap: 182px;
-        margin: 0 auto;
-      }
-
-      .nav-logo {
-        height: 42px;
-        width: 42px;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 10px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 10px 0;
-        border-top: 1px solid #444;
-      }
-
-      footer a {
-        font-size: 14px;
-      }
-
-      .flinks {
-        margin-left: 40px;
-      }
-    }
-
-    /* Modal Styling */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
-      padding: 30px;
-      border: 1px solid #ccc;
-      width: 90%;
-      max-width: 800px;
-      text-align: center;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .modal-content h2 {
-      color: #002c8b;
-      margin-bottom: 15px;
-    }
-
-    .modal-content .button {
-      margin-top: 15px;
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-
-
-
-
-
-
-
-    /* for model */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    .modal-content .header {
-      background-color: #002c8b;
-      padding: 20px;
-      color: white;
-    }
-
-    .modal-content .header .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media (min-width: 768px) {
-      .header .container {
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    }
-
-    @media (max-width: 500px) {
-
-      .modal-content .card h2,
-      .modal-content .contactContainer h2 {
-        font-size: 18px;
-      }
-
-      .modal-content .card p,
-      .modal-content .contactContainer p {
-        font-size: 14px;
-      }
-
-      .features .card {
-        margin: 0 auto;
-      }
-
-      .modal-content .contactContainer {
-        margin-top: -40px;
-      }
-
-      .modal-content .contactContainer button {
-        padding: 6px;
-        width: 180px;
-        gap: 0px;
-        font-size: 12px;
-      }
-    }
-
-    .logo {
-      height: 40px;
-      margin-bottom: 10px;
-    }
-
-    nav {
-      width: 100%;
-    }
-
-    .nav {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
-    }
-
-    @media (min-width: 768px) {
-      .nav {
-        flex-direction: row;
-        gap: 20px;
-        justify-content: flex-end;
-      }
-    }
-
-    .nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .hero {
-      background-color: #e6eefc;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .search-box {
-      padding: 10px;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .content {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .card {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 300px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .footer {
-      background-color: #002c8b;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-    }
-
-    /* button for call */
-    /* From Uiverse.io by adeladel522 */
-    .button {
-      position: relative;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-      padding-block: 0.5rem;
-      padding-inline: 1.25rem;
-      background-color: rgb(0 107 179);
-      border-radius: 9999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: #ffff;
-      gap: 10px;
-      font-weight: bold;
-      border: 3px solid #ffffff4d;
-      outline: none;
-      overflow: hidden;
-      font-size: 15px;
-      margin: 0 auto;
-    }
-
-    .icon {
-      width: 24px;
-      height: 24px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .button:hover {
-      transform: scale(1.05);
-      border-color: #fff9;
-    }
-
-    .button:hover .icon {
-      transform: translate(4px);
-    }
-
-    .button:hover::before {
-      animation: shine 1.5s ease-out infinite;
-    }
-
-    .button::before {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100%;
-      background-image: linear-gradient(120deg,
-          rgba(255, 255, 255, 0) 30%,
-          rgba(255, 255, 255, 0.8),
-          rgba(255, 255, 255, 0) 70%);
-      top: 0;
-      left: -100px;
-      opacity: 0.6;
-    }
-
-    @keyframes shine {
-      0% {
-        left: -100px;
-      }
-
-      60% {
-        left: 100%;
-      }
-
-      to {
-        left: 100%;
-      }
-    }
-
-
-    .contactContainer {
-      text-align: center;
-      padding: 30px;
-      margin: 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .contactContainer h2 {
-      color: #0056b3;
-    }
-
-    .contactContainer p {
-      color: #555;
-
-    }
-
-    .cmargin{
-      margin-top: 0;
-      padding-top:180px;
-    }
-
-    .pmargin{
-      margin-top: 0;
-      padding-top:80px;
-    }
-
-    .abtn{
-      outline: none;
-      border: none;
-      background-color: transparent;
-      color: white;
-      font-size: 16px;
-    }
-    .abtn:hover{
-      text-decoration: underline;
-      cursor: pointer;
-    }
-    
-  </style>
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -580,7 +21,9 @@
         <a href="#">Home</a>
         <a href="#privacy">Privacy Policy</a>
         <a href="#about">About Us</a>
-        <button class="abtn" onclick="showModal()">Contact</button>
+        <a  href="contact.html" target="_blank" style="color: white; text-decoration: none;">
+          <button class="abtn"  onclick="showModal()"> Contact Us</button>
+        </a>
       </div>
     </div>
   </nav>
@@ -785,7 +228,7 @@
       </p>
       <br>
       <p>
-        For any privacy concerns or inquiries, feel free to <a href="#contact">contact us</a>.
+        For any privacy concerns or inquiries, feel free to <a target="_blank" href="contact.html">contact us</a>.
       </p>
       <br>
     </section>
@@ -847,7 +290,9 @@
         <a href="#" style="color: white; text-decoration: none;">Home</a>
         <a href="#about" style="color: white; text-decoration: none;">About Us</a>
         <a href="#privacy " style="color: white; text-decoration: none">Privacy Policy</a>
-        <button class="abtn" onclick="showModal()" style="color: white; text-decoration: none;">Contact</button>
+        <a  href="contact.html" target="_blank" style="color: white; text-decoration: none;">
+          <button class="abtn"  onclick="showModal()"> Contact Us</button>
+        </a>
       </div>
     </div>
   </footer>
@@ -858,85 +303,7 @@
 
 
 
-<div id="supportModal" class="modal">
-    <div class="modal-content">
-        <header class="header">
-            <div class="container">
-               <img src="https://in-media.apjonlinecdn.com/logo/stores/1/LogoHPblue_1.svg" style="margin: 0 auto" alt="HP Logo" class="logo" /> 
-              
-            </div>
-          </header>
-        
-          <section class="hero">
-            <div class="container">
-              <h1>Welcome to Printer Support </h1>
-              <p>Find drivers, troubleshooting tips, and warranty info</p>
-              
-        
-                <button class="button" onclick="callSupport()">
-                   +1 844-610-5999
-                    <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                        <path
-                            clip-rule="evenodd"
-                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                            fill-rule="evenodd"
-                        ></path>
-                    </svg>
-                </button>
-          
-            </div>
-          </section>
-        
-          <section class="content container" onclick="callSupport()
-          ">
-            <div class="card">
-              <h2>Download Drivers</h2>
-              <p>Get the latest drivers for your printer model from our driver library.</p>
-            </div>
-            <div class="card">
-              <h2>Fix Printing Issues</h2>
-              <p>Use HP Print and Scan Doctor to identify and solve printer issues quickly.</p>
-            </div>
-            <div class="card">
-              <h2>Check Warranty</h2>
-              <p>Enter your product serial number to check warranty status.</p>
-            </div>
-            <div class="card">
-              <h2>Setup Guides</h2>
-              <p>Follow our step-by-step installation and configuration guides.</p>
-            </div>
-            <div class="card">
-              <h2>Order Supplies</h2>
-              <p>Order ink, toner, and paper directly from HP.</p>
-            </div>
-            <div class="card">
-              <h2>Contact Support</h2>
-              <p>Need help? Get in touch with HP support team via chat, email, or call.</p>
-            </div>
-          </section>
-        
-        
-          <section class="content container">
-            
-            <div class="contactContainer">
-                <h2>Contact Us</h2>
-                <p style="margin-top: 12px;">If you need immediate assistance, call our customer support team:</p>
-                <button class="button" onclick="callSupport()" style="margin-top: 20px;">
-                  +1 844-610-5999
-                    <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
-                        <path
-                            clip-rule="evenodd"
-                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                            fill-rule="evenodd"
-                        ></path>
-                    </svg>
-                </button>
-          
-            </div>
-        
-          </section>
-    </div>
-</div>
+
 
 
   <script>
@@ -1378,10 +745,8 @@
     
      footerLinks.forEach(element => {
         element.onclick = () => {
-          console.log(element);
-          
-              const data = element.getAttribute('href');
-          
+         const data = element.getAttribute('href');
+     
                 if(data == '#'){
                   page.innerHTML = `
                                                             <!-- Header -->
@@ -1679,78 +1044,36 @@
                 }
                 
                 if(data == '#privacy'){
-                      page.innerHTML = `
-                                          <!-- Privacy Section -->
-                                          <section class="details pmargin" >
-
-                                            <h2>Privacy Policy</h2>
-                                            <p>At SmartPrint 5000, we respect your privacy.
-                                              We only collect personal data necessary to provide and improve our services, such as email addresses and usage
-                                              analytics.
-                                              We never sell or share your data with third parties without your explicit consent.
-                                              By using our website or products, you agree to our data collection practices.
-                                              For more details, please contact our support team.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              At <strong>SmartPrint 5000</strong>, your privacy is important to us. This Privacy Policy outlines how we
-                                              collect, use, and protect your personal information when you visit our website or use our services.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Information We Collect:</strong> We may collect personal information such as your name, email address,
-                                              phone number, and billing information when you make a purchase, contact us, or subscribe to our newsletter.
-                                              Additionally, we may collect non-personal information like browser type, IP address, and usage patterns through
-                                              cookies and analytics tools.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>How We Use Your Information:</strong> Your information helps us provide and improve our services,
-                                              process orders, send important updates, marketing communications (with your consent), and ensure website
-                                              functionality and security.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Data Security:</strong> We implement industry-standard security measures, including encryption and
-                                              secure servers, to protect your data from unauthorized access, disclosure, or misuse.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Third-Party Services:</strong> We may use trusted third-party services such as payment processors and
-                                              analytics providers. These services are required to follow strict confidentiality agreements and are used solely
-                                              to support our operations.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Your Rights:</strong> You have the right to access, update, or request deletion of your personal
-                                              information. You can also opt-out of receiving promotional emails at any time.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Policy Updates:</strong> We reserve the right to modify this Privacy Policy at any time. Updates will be
-                                              posted on this page with a revised effective date.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              For any privacy concerns or inquiries, feel free to <a href="#contact">contact us</a>.
-                                            </p>
-                                            <br>
-                                          </section>
-
-                                          <!-- contact Section -->
-                                          <section class="details" id="contact">
-                                            <h2>Contact Us</h2>
-                                            <p>We'd love to hear from you! You can reach us through the following contact details or use the form below to
-                                              send us a message.</p>
-
-                                            <div class="contact-info">
-                                              <p><strong>Address:</strong> 123, Tech Innovation Park, Sector 21, New Delhi, India</p>
-                                              <p href=""><strong>Phone:</strong> +1 844 610 5999</p>
-                                            </div>
-
-                                          </section>
-                      
-                      `;
+                  page.innerHTML = `
+                  
+                  
+                          <p>
+                                                At <strong>SmartPrint 5000</strong>, we are dedicated to revolutionizing the printing experience by offering
+                                                cutting-edge, user-friendly, and eco-conscious printing solutions for individuals, homes, and businesses.
+                                              </p>
+                                              <br>
+                                              <p>
+                                                Established with a passion for innovation and customer satisfaction, SmartPrint 5000 has quickly grown into a
+                                                trusted name in the printing industry. Our journey began with a simple mission: to make advanced printing
+                                                technology accessible to everyone, regardless of their technical background or business size.
+                                              </p>
+                                              <br>
+                                              <p>
+                                                With years of research and collaboration with leading technology experts, we have developed a line of printers
+                                                that combine speed, quality, and sustainability. Our products are known for their intuitive interfaces, wireless
+                                                capabilities, and low energy consumption.
+                                              </p>
+                                              <br>
+                                              <p>
+                                                Beyond our products, we pride ourselves on our exceptional customer support, ensuring that every customer
+                                                receives the assistance they need to get the best out of their printing solutions.
+                                              </p>
+                                              <br>
+                                              <p>
+                                                Join our community of satisfied customers and experience the future of smart printing with SmartPrint 5000.
+                                              </p>
+                  
+                  `;
                 }
         }
     });
