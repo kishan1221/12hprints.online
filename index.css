@@ -140,7 +140,7 @@
 
     .modal-content {
       background-color: white;
-      margin: 3% auto;
+      margin: 3% auto !important;
       padding: 30px;
       border-radius: 10px;
       max-width: 500px;
