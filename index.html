@@ -1,1084 +1,607 @@
-<!DOCTYPE html>
 <html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+    12prints
+  </title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SmartPrint 5000 - Printer for Everyone</title>
-  <link rel="stylesheet" href="index.css">
-</head>
+       .menu-transition {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: scaleY(0.95) !important;
+      transform-origin: top;
+    }
+    .menu-transition.open {
+      max-height: 500px; /* adjust if needed */
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  </style>
+ </head>
+ <body class="bg-white text-black">
+  <!-- Header -->
+  <header class="flex items-center justify-between px-4 sm:px-6 md:px-10 py-3 border-b border-gray-200" style="position: fixed;top: 0 ;background-color: white; z-index: 100; width: 100%;">
+    <!-- Logo -->
+    <!-- <div class="flex items-center space-x-1">
+      <span class="text-blue-600 font-bold text-lg">Printer</span>
+      <span class="font-bold text-lg">Space</span>
+    </div> -->
 
-<body>
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center  space-x-10 text-md font-semibold" style="margin-left: 26px;">
+      <a class="text-blue-600" href="best-deals.html">Home</a>
+      <a class="hover:text-gray-700" href="#shop">Our Shop</a>
+      <a class="hover:text-gray-700" href="#about">About Us</a>
+      <a class="hover:text-gray-700" href="#service">Our Services</a>
+      <a class="hover:text-gray-700" href="contact.html">Contact Us</a>
+    </nav>
 
-  <nav>
-    <div class="nav-container">
-      <div class="container">
-        <!-- <img src="https://in-media.apjonlinecdn.com/logo/stores/1/LogoHPblue_1.svg" height="55px" width="55px" class="nav-logo" style="margin: 0 auto" alt="HP Logo" class="logo" /> -->
+    <!-- Mobile Menu Button -->
+    <button id="menu-toggle" class="md:hidden mx-auto text-gray-700 text-2xl">
+      <i id="menu-icon" class="fas fa-bars"></i>
+    </button>
+  </header>
 
-      </div>
-      <div class="nav-toggle" onclick="toggleMenu()">☰</div>
-      <div class="nav-links" id="navLinks">
-        <a href="#">Home</a>
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#about">About Us</a>
-        <a  href="contact.html" target="_blank" style="color: white; text-decoration: none;">
-          <button class="abtn" > Contact Us</button>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="main">
-    <!-- Header -->
-    <header>
-      <h1 style="padding-top:24px ;">Welcome to Printer Support</h1>
-      <p>Your Ultimate Smart Printing Companion</p>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-      <h2>Next-Level Printing Starts Here</h2>
-      <p>Blazing speed, crystal clarity, eco-friendly design – all packed in one smart printer made for homes and
-        offices alike.</p>
-    </section>
-
-
-    <!-- Details Section -->
-    <section class="details">
-      <h2 style="margin-bottom: 16px;">Getting to know your Printer by Understanding How it Works </h2>
-
-      <div>
-        <img src="https://blog.inktonerstore.com/wp-content/uploads/2016/02/laptop-1016287_960_720.jpg" height="100%"
-          width="100%" alt="">
-      </div>
-      <p>
-        A Printer is an electromechanical device that accepts text and graphical data from a computer and generates the
-        information into a physical form. By knowing what type of printer you have, you will also be able to understand
-        how it works. It is broadly categorized into two (2) the Impact and Non-impact.
-        <br>
-        <br>
-      </p>
-      <p>
-        <b>Impact Printers -</b> are printers in which a key makes contact with an inked ribbon to mark the paper.The
-        following are examples of Impact printers.
-        <br>
-        <br>
-      </p>
-      <p>
-        <b> Daisy wheel –</b> This type of printer works very similar to typewriters. The heart of these printers is a
-        circular mechanism known as daisy wheel since it looks like a daisy and numeric characters, symbols and texts
-        are molded on each petal on the circumference of the circle. With the help of a servo motor, the daisy wheel
-        rotates rapidly and pauses to allow the printing hammer to strike a “petal” containing a character against the
-        ribbon producing a print on the paper. Daisy Wheel Printers speed is slow typically 25-55 characters per second.
-        <br>
-        <br>
-      </p>
-      <p>
-        <b> Dot matrix –</b> Dot matrix printer uses a print head that contains 9 to 24 pins that produces patterns of
-        dots to form individual characters. The pins moves back and forth or up and down motion and prints by impact,
-        striking an inked ribbon. This printer, determined by the number of pins can produce a much better print quality
-        with a speed that can vary from 50 to 500 characters per second. Dot matrix printers can print to multi-page
-        forms that something laser or inkjet printers cannot do.
-        <br>
-        <br>
-      </p>
-      <p>
-        <b> Chain – </b>Like the word chain, a chain printer has a set of numbers and characters arranged in a
-        continuous loop that resembles a chainsaw blade. A circuit inside the printer detects if a correct character
-        appears, then a row of hammers strike the page, pressing the paper against a ribbon. The chain keeps rotating
-        until everything is printed. It is faster than a dot matrix printer which it speeds up to several hundred lines
-        per minute.
-        <br>
-      </p>
-      <p>
-        <b>Non-impact Printers -</b> are printers that do not use a striking device in order to print and they are much
-        quieter than the impact printers. These are some of non-impact printers.
-        <br>
-        <br>
-      </p>
-      <p>
-        <b> Ink-jet – </b> Ink-jet printers produce a high quality graphics and texts. It works the same as dot matrix
-        printers which the characters are formed with little dots, but instead of using inked ribbon, an ink-jet printer
-        sprays ink at a sheet of paper. Depending on the nature of the hard copy, an inkjet printer can produce up to
-        several hundred pages until the ink runs out. Because of its inexpensiveness and satisfactory performance, it is
-        much popular for personal computer users.
-        <br>
-        <br>
-      </p>
-
-      <p>
-        <b>Laser –</b> A laser printer uses the same technology as photocopy machines. It produces a very high quality
-        text and graphics. A laser beam is directed at a mirror which bounces the beam on a light-sensitive drum. This
-        light-sensitive drum has a special coating on it which attracts toner or an ink powder. The toner is then
-        transferred to the paper printing the letters or graphics and a hot roller bonds them together.
-        <br>
-        <br>
-      </p>
-    </section>
-
-    <!-- Details Section -->
-    <section class="details">
-      <h2>How Printers Work</h2>
-      <p>
-        Printers are devices that accept text and graphic output from a computer and transfer the information to paper,
-        usually to standard size sheets of paper. Most printers today are either inkjet or laser printers.
-
-        Inkjet printers spray tiny droplets of ink directly onto the paper. They're best for photos and detailed color
-        work. Laser printers use a laser beam to produce an image on a drum, which is then transferred to paper using
-        toner and heat — ideal for high-speed, high-volume printing.
-      </p>
-      <p>
-        The printer also includes auto duplex printing, quiet mode for silent operation, and AI-assisted diagnostics to
-        automatically notify
-        users of maintenance needs. Trusted by over 50,000 businesses worldwide.
-      </p>
-    </section>
-
-
-
-    <!-- About Section -->
-    <section class="details" id="about">
-
-      <h2>About Us</h2>
-      <p>Welcome to SmartPrint 5000!
-        We are passionate about redefining printing solutions by offering cutting-edge printers that blend speed,
-        precision, and eco-friendly technology.
-        Our mission is to make smart printing accessible to everyone — from home users to businesses.
-        With SmartPrint 5000, you get performance, reliability, and innovation in one package.
-      </p>
-      <br><br>
-
-      <p>
-        At <strong>SmartPrint 5000</strong>, we are dedicated to revolutionizing the printing experience by offering
-        cutting-edge, user-friendly, and eco-conscious printing solutions for individuals, homes, and businesses.
-      </p>
-      <br>
-      <p>
-        Established with a passion for innovation and customer satisfaction, SmartPrint 5000 has quickly grown into a
-        trusted name in the printing industry. Our journey began with a simple mission: to make advanced printing
-        technology accessible to everyone, regardless of their technical background or business size.
-      </p>
-      <br>
-      <p>
-        With years of research and collaboration with leading technology experts, we have developed a line of printers
-        that combine speed, quality, and sustainability. Our products are known for their intuitive interfaces, wireless
-        capabilities, and low energy consumption.
-      </p>
-      <br>
-      <p>
-        Beyond our products, we pride ourselves on our exceptional customer support, ensuring that every customer
-        receives the assistance they need to get the best out of their printing solutions.
-      </p>
-      <br>
-      <p>
-        Join our community of satisfied customers and experience the future of smart printing with SmartPrint 5000.
-      </p>
-    </section>
-
-
-    <!-- Privacy Section -->
-    <section class="details" id="privacy">
-
-      <h2>Privacy Policy</h2>
-      <p>At SmartPrint 5000, we respect your privacy.
-        We only collect personal data necessary to provide and improve our services, such as email addresses and usage
-        analytics.
-        We never sell or share your data with third parties without your explicit consent.
-        By using our website or products, you agree to our data collection practices.
-        For more details, please contact our support team.
-      </p>
-      <br>
-      <p>
-        At <strong>SmartPrint 5000</strong>, your privacy is important to us. This Privacy Policy outlines how we
-        collect, use, and protect your personal information when you visit our website or use our services.
-      </p>
-      <br>
-      <p>
-        <strong>Information We Collect:</strong> We may collect personal information such as your name, email address,
-        phone number, and billing information when you make a purchase, contact us, or subscribe to our newsletter.
-        Additionally, we may collect non-personal information like browser type, IP address, and usage patterns through
-        cookies and analytics tools.
-      </p>
-      <br>
-      <p>
-        <strong>How We Use Your Information:</strong> Your information helps us provide and improve our services,
-        process orders, send important updates, marketing communications (with your consent), and ensure website
-        functionality and security.
-      </p>
-      <br>
-      <p>
-        <strong>Data Security:</strong> We implement industry-standard security measures, including encryption and
-        secure servers, to protect your data from unauthorized access, disclosure, or misuse.
-      </p>
-      <br>
-      <p>
-        <strong>Third-Party Services:</strong> We may use trusted third-party services such as payment processors and
-        analytics providers. These services are required to follow strict confidentiality agreements and are used solely
-        to support our operations.
-      </p>
-      <br>
-      <p>
-        <strong>Your Rights:</strong> You have the right to access, update, or request deletion of your personal
-        information. You can also opt-out of receiving promotional emails at any time.
-      </p>
-      <br>
-      <p>
-        <strong>Policy Updates:</strong> We reserve the right to modify this Privacy Policy at any time. Updates will be
-        posted on this page with a revised effective date.
-      </p>
-      <br>
-      <p>
-        For any privacy concerns or inquiries, feel free to <a  href="#">contact us</a>.
-      </p>
-      <br>
-    </section>
-
-    <!-- contact Section -->
-    <section class="details" id="contact">
-      <h2>Contact Us</h2>
-      <p>We'd love to hear from you! You can reach us through the following contact details or use the form below to
-        send us a message.</p>
-
-      <div class="contact-info">
-        <p><strong>Address:</strong> 123, Tech Innovation Park, Sector 21, New Delhi, India</p>
-        <p href=""><strong>Phone:</strong> +1 844 610 5999</p>
-      </div>
-
-    </section>
-
-
-    <!-- Features Cards -->
-    <section class="features">
-      <div class="card">
-        <h3>Ultra-Fast Printing</h3>
-        <p>Print up to 35 pages per minute with professional laser-like quality.</p>
-      </div>
-      <div class="card">
-        <h3>Wireless Connectivity</h3>
-        <p>Supports Wi-Fi, Bluetooth, and LAN connections for easy printing from any device.</p>
-      </div>
-      <div class="card">
-        <h3>EcoTank Technology</h3>
-        <p>Save up to 70% ink with refillable tank systems. Good for your pocket and the planet.</p>
-      </div>
-      <div class="card">
-        <h3>Smart Touch Panel</h3>
-        <p>Operate with a sleek 3.5" LCD touchscreen – print, scan, or copy with one tap.</p>
-      </div>
-      <div class="card">
-        <h3>Mobile & Cloud Print</h3>
-        <p>Print directly from your phone with AirPrint, Google Cloud Print, or email-to-print.</p>
-      </div>
-      <div class="card">
-        <h3>OS Compatibility</h3>
-        <p>Works seamlessly on Windows, macOS, Linux & ChromeOS.</p>
-      </div>
-    </section>
-
-
+  <!-- Mobile Nav Menu -->
+  <div id="mobile-menu" class="menu-transition md:hidden px-4 py-4 space-y-4 text-sm font-semibold border-b border-gray-200">
+    <a class="block text-blue-600" href="#">Home</a>
+    <a class="block hover:text-gray-700" href="#shop">Our Shop</a>
+    <a class="block hover:text-gray-700" href="about">About Us</a>
+    <a class="block hover:text-gray-700" href="service">Our Services</a>
+    <a class="block hover:text-gray-700" href="contact.html">Contact Us</a>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div
-      style="max-width: 1000px; margin: auto; padding: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-      <div style="margin-bottom: 10px;">
-        <strong>Printer Support</strong> &copy; 2025. All rights reserved.<br>
-        <small>support@printersupport.com | +1 844-610-5999</small>
-      </div>
-      <div style="display: flex; gap: 15px; flex-wrap: wrap;" class="flinks">
-        <a href="#" style="color: white; text-decoration: none;">Home</a>
-        <a href="#about" style="color: white; text-decoration: none;">About Us</a>
-        <a href="#privacy " style="color: white; text-decoration: none">Privacy Policy</a>
-        <a  href="#contact.html" target="_blank" style="color: white; text-decoration: none;">
-          <button class="abtn" > Contact Us</button>
-        </a>
-      </div>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-r from-blue-900 via-blue-900/90 to-blue-900/90">
+   <img alt="Multiple printers on a blue network background" class="w-full object-cover max-h-[400px] opacity-90" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/2a53b67b-aaca-4b0a-9f38-5da240c1136d.jpg" width="1920"/>
+   <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4 sm:px-6 md:px-10" style="background: rgba(0,0,0,0.5)">
+    <h1 class="font-semibold text-lg sm:text-xl md:text-3xl leading-tight max-w-lg">
+     Find the Perfect Printer to Buy
+    </h1>
+    <p class="mt-2 text-sm sm:text-base md:text-xl">
+     Printer Purchase Solutions
+    </p>
+   </div>
+  </section>
+  <!-- About Us Section -->
+  <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-12 flex flex-col md:flex-row items-center md:items-start gap-10">
+   <div class="md:w-1/2 space-y-6">
+    <h2 class="text-blue-600 font-semibold text-2xl text-center">
+     About Us
+    </h2>
+    <div>
+     <p class="text-lg font-semibold text-blue-600">
+      Our Activities
+     </p>
+     <p class="text-[13px] leading-tight mt-1 text-justify text-black">
+      Welcome to PrinterSpace, your ultimate hub for everything printer and printing services. Whether you need a dependable toner printer, a reliable supply of ink cartridges, or expert maintenance for your devices, we offer solutions to meet all your needs.
+     </p>
     </div>
-  </footer>
+    <div>
+     <p class="text-lg font-semibold text-blue-700">
+      Our Objective
+     </p>
+     <p class="text-[13px] leading-tight mt-1 text-justify text-black">
+      Our fundamental goal is to help you find the best printer and printing products by carefully and efficiently. Our goal is to offer customers access to top-quality printing and design, expert purchase advice, reasonable prices, and convenient service. Our goal is to provide you with a printing experience that is smooth, cost-effective, and easy.
+     </p>
+    </div>
+    <a class="text-blue-600 text-sm font-semibold underline" href="#">
+     Contact here
+    </a>
+   </div>
+   <div class="md:w-1/2 flex justify-center md:justify-end">
+    <img alt="Black Dell multifunction printer front view" class="max-w-full h-auto" height="400" loading="lazy" src="https://storage.googleapis.com/a1aa/image/84ee962c-b495-4e70-7de1-2a581326c961.jpg" width="400"/>
+   </div>
+  </section>
 
 
-  <!-- Popup Modal -->
-  <!-- Modal -->
+  <!-- Products Grid -->
+  <section id="shop" class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 pb-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+  
+    <!-- Product 1 -->
+   <div class="text-center text-[9px]">
+    <img alt="48A toner cartridge compatible with HP LaserJet Pro M15a M15w MFP M28a M28w" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/6f51b355-c2ae-476f-9985-fedcc3d8068e.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     48A Toner Cartridge - Compatible with HP LaserJet Pro M15a M15w MFP M28a M28w
+    </p>
+    <p class="mb-1">
+     $19.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 2 -->
+   <div class="text-center text-[9px]">
+    <img alt="Brother HL-L2350DW Mono Laser Printer" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/1c0ba589-061e-4b43-4149-909c793863d7.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Brother HL-L2350DW Mono Laser Printer, Screen and Duplex, Rear Tray Home
+    </p>
+    <p class="mb-1">
+     $99.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 3 -->
+   <div class="text-center text-[9px]">
+    <img alt="Brother multifunction printer with wireless mobile printing" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ed49b284-44b8-49c6-8b53-c430e0802ab0.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Brother Multifunction Printer with Wireless Mobile Printing, Works with Amazon Alexa
+    </p>
+    <p class="mb-1">
+     $149.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 4 -->
+   <div class="text-center text-[9px]">
+    <img alt="Brother Refurbished Printer 2140 Black Cartridge" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/beac1e88-52a7-4c62-324c-b2112743700d.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer 2140 Black Cartridge, Compatible with Color Printer for 2140 HP 2015 Series
+    </p>
+    <p class="mb-1 line-through">
+     $29.99
+    </p>
+    <p class="mb-1">
+     $25.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 5 -->
+   <div class="text-center text-[9px]">
+    <img alt="Brother Refurbished Printer 2140 Black Toner Cartridge" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/3d128265-482f-4644-4d1b-799d0d8369f6.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer 2140 Black Toner Cartridge, Works with M1020 Series M1040 Series
+    </p>
+    <p class="mb-1">
+     $29.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 6 -->
+   <div class="text-center text-[9px]">
+    <img alt="Star Micronics Thermal USB Receipt Printer POS Printer with Auto Cutter, ESC/POS Compatible, Windows Mac" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/db8b9617-0864-40c2-21ce-62ba8502b30a.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Star Micronics Thermal USB Receipt Printer POS Printer with Auto Cutter, ESC/POS Compatible, Windows Mac, $219.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 7 -->
+   <div class="text-center text-[9px]">
+    <img alt="Brother Thermal Label Printer, Bluetooth Thermal Label Printer 1100 Windows for Shipping Package Small Business" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b11a5013-cb45-4519-772b-9d2dddc41f5e.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Brother Thermal Label Printer, Bluetooth Thermal Label Printer 1100 Windows for Shipping Package Small Business
+    </p>
+    <p class="mb-1">
+     $129.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 8 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Printer Thermal Receipt Printer PT-210 Portable Handheld Steam Receipt for Retail Stores Restaurant Restaurant Logistics" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/bce0e97b-8e94-479a-91a5-238d5e9ce1b6.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer Thermal Receipt Printer PT-210 Portable Handheld Steam Receipt for Retail Stores Restaurant Restaurant Logistics
+    </p>
+    <p class="mb-1">
+     $99.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 9 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Printer Color Printer Brand New Medium Business Print Copy Scan Fax for Restaurant Smart Advance Scan" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b0cc9230-6168-4785-b5d0-9ed31a3de352.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer Color Printer Brand New Medium Business Print Copy Scan Fax for Restaurant Smart Advance Scan
+    </p>
+    <p class="mb-1 line-through">
+     $299.99
+    </p>
+    <p class="mb-1">
+     $249.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 10 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Printer Thermal USB Receipt Printer POS Printer with Auto Cutter, ESC/POS Compatible, Windows Mac" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/09006d72-dd8f-4c51-4e8e-cb4f7681756c.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer Thermal USB Receipt Printer POS Printer with Auto Cutter, ESC/POS Compatible, Windows Mac
+    </p>
+    <p class="mb-1">
+     $219.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 11 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Printer Thermal Receipt Printer PT-210 Portable Handheld Steam Receipt for Retail Stores Restaurant Restaurant Logistics" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/bce0e97b-8e94-479a-91a5-238d5e9ce1b6.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer Thermal Receipt Printer PT-210 Portable Handheld Steam Receipt for Retail Stores Restaurant Restaurant Logistics
+    </p>
+    <p class="mb-1">
+     $99.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 12 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Printer Color Printer Brand New Medium Business Print Copy Scan Fax for Restaurant Smart Advance Scan" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/b0cc9230-6168-4785-b5d0-9ed31a3de352.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer Color Printer Brand New Medium Business Print Copy Scan Fax for Restaurant Smart Advance Scan
+    </p>
+    <p class="mb-1 line-through">
+     $299.99
+    </p>
+    <p class="mb-1">
+     $249.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 13 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Printer Print Fax Scanner Copy Wireless Mobile printing Advanced features Best for small teams, Thermostats only, $149.99" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/033894b5-4ac9-45c5-7100-49ef6a314f29.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer Print Fax Scanner Copy Wireless Mobile printing Advanced features Best for small teams, Thermostats only
+    </p>
+    <p class="mb-1">
+     $149.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 14 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Printer Print Fax Copy Duplex Printing Best for Home 3 Months with Ink Included, $79.99" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/e4288268-e647-43d7-d2e9-17300dc256ca.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Printer Print Fax Copy Duplex Printing Best for Home 3 Months with Ink Included
+    </p>
+    <p class="mb-1">
+     $79.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 15 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Wireless All-in-One Color Printer Best for Home Duplex printing Best for Home 3 months with Ink Included" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/823e25eb-f894-4b91-da1d-255981524b90.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Wireless All-in-One Color Printer Best for Home Duplex printing Best for Home 3 months with Ink Included
+    </p>
+    <p class="mb-1 line-through">
+     $179.00
+    </p>
+    <p class="mb-1">
+     $159.00
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 16 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Wireless Black &amp; White Printer Best for Home" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/2e78487c-83d5-420a-c083-8eb62bcfac88.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Wireless Black &amp; White Printer Best for Home
+    </p>
+    <p class="mb-1">
+     $151.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 17 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Wireless Inkjet Black &amp; White Printer Best for Home, Scanner, Copier, Fax, Buy for Office" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/ad76d8bb-00ff-4785-6eb4-f3b7a281ead1.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Wireless Inkjet Black &amp; White Printer Best for Home, Scanner, Copier, Fax, Buy for Office
+    </p>
+    <p class="mb-1">
+     $499.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+   <!-- Product 18 -->
+   <div class="text-center text-[9px] relative">
+    <span class="absolute -top-2 -left-2 bg-blue-700 text-white text-[8px] font-semibold px-1 rounded">
+     Sale!
+    </span>
+    <img alt="Refurbished Wireless Printer All-in-One Color Laser Printer Scanner Copier Fax Best for Office" class="mx-auto mb-2" height="150" loading="lazy" src="https://storage.googleapis.com/a1aa/image/8109a5c0-38f0-4fc8-4d6e-6287df2de0fd.jpg" width="200"/>
+    <p class="mb-1 font-semibold">
+     Refurbished Wireless Printer All-in-One Color Laser Printer Scanner Copier Fax Best for Office
+    </p>
+    <p class="mb-1">
+     $299.99
+    </p>
+    <button class="bg-blue-700 text-white text-xs px-3 py-1 rounded">
+     Add to cart
+    </button>
+   </div>
+  </section>
 
+  <!-- Fundamental Services Section -->
+  <section id="service" class="bg-blue-600 text-white py-12 px-4 sm:px-6 md:px-10">
+   <div class="max-w-7xl mx-auto text-center mb-10">
+    <h2 class="font-semibold text-2xl">
+     Our Fundamental Services
+    </h2>
+    <p class="text-sm mt-1 max-w-3xl mx-auto">
+     We provide high-quality printing services customized to your requirements
+    </p>
+    <p class="text-[10px] mt-3 max-w-4xl mx-auto leading-tight">
+     At PrinterSpace, we deliver and cater to a complete range of printer hardware and supplies to meet your printing needs. We also ensure you receive online value and an education from your printing solutions. Whether you're furnishing your home office or equipping your whole business, we're here to assist you at every stage.
+    </p>
+   </div>
 
-
-
-
-
-  <script>
-    const modal = document.getElementById("popupModal");
-    const closeBtn = document.getElementById("closeModal");
-
-
-    function showModal() {
-      document.getElementById("supportModal").style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById("supportModal").style.display = "none";
-    }
-
-    // Show modal after 3 seconds
-    // window.onload = function () {
-    //   setTimeout(showModal, 1000);
-    // };
-
-    // Close modal if user clicks outside the modal content
-    window.onclick = function (event) {
-      const modal = document.getElementById("supportModal");
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-
-
-    function toggleMenu() {
-      const nav = document.getElementById("navLinks");
-      nav.classList.toggle("active");
-    }
-
-
-
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const input = document.querySelector(".search-box");
-      input.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          alert(`You searched for: ${input.value}`);
-        }
-      });
-    });
-
-    function callSupport() {
-      window.location.href = 'tel:+1 844-610-5999';
-
-    }
-
-    // pages append
-
-    var page = document.querySelector('.main');
-    var navLinks = document.querySelectorAll('.nav-links a')
+   <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+    
+    <div class="border border-white p-4 text-[11px]">
+     <h3 class="font-semibold mb-2 text-xl">
+      Sales of Printers
+     </h3>
+     <p>
+      We stock a wide range of premium printers from reputable brands. Wanting a large, basic, or home-use specialist printer? We carry many printing models in stock. Each printer is tested and certified to ensure dependable quality, offering you a streamlined and transparent service.
+     </p>
+    </div>
+    
+    <div class="border border-white p-4 text-[11px]">
+     <h3 class="font-semibold text-xl mb-2">
+      Specialized Product Advice
+     </h3>
+     <p>
+      I know printers inside and out. I can help you select the best printer and toner available to suit your environment. We will assist you in selecting the best printer based on your specific requirements, including print volume, consumables options, budget, and desired features.
+     </p>
+    </div>
    
-    console.log(navLinks);
-    
-    navLinks.forEach(element => {
-        element.onclick = () => {
-         
-              const data = element.getAttribute('href');
+    <div class="border border-white p-4 text-[11px]">
+     <h3 class="font-semibold mb-2 text-xl">
+      Shipping &amp; Setup
+     </h3>
+     <p>
+      We are happy to provide a setup or installation service for new printers purchased. Just ask your sales representative when you buy, and they will arrange an installation on-site with a configuration and training for your new printer. We install and test all printers to minimize hardware support issues.
+     </p>
+    </div>
 
-                if(data == '#'){
-                  page.innerHTML = `
-                                                            <!-- Header -->
-                                        <header>
-                                          <h1 style="padding-top:24px ;">Welcome to Printer Support</h1>
-                                          <p>Your Ultimate Smart Printing Companion</p>
-                                        </header>
+   </div>
 
-                                        <!-- Hero -->
-                                        <section class="hero">
-                                          <h2>Next-Level Printing Starts Here</h2>
-                                          <p>Blazing speed, crystal clarity, eco-friendly design – all packed in one smart printer made for homes and
-                                            offices alike.</p>
-                                        </section>
+   <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="border border-white p-4 text-[11px]">
+     <h3 class="font-semibold text-xl mb-2">
+      Supplies &amp; Add-ons
+     </h3>
+     <p>
+      Get a full range of ink and toner cartridges for most popular models, with high-quality supplies, parts, and service accessories. PrinterSpace works for quality and value, discounts, and mail promotions from suppliers.
+     </p>
+    </div>
+    <div class="border border-white p-4 text-[11px]">
+     <h3 class="font-semibold text-xl mb-2">
+      Large Orders for Companies
+     </h3>
+     <p>
+      We have the bulk purchase options for companies, supply, and corporate IT departments. We offer volume discounts and purchase order facilities for customers with their own ordering, delivery, and invoicing facilities. Additional billing arrangements and prepayments and on-volume-based discounts.
+     </p>
+    </div>
+    <div class="border border-white p-4 text-[11px]">
+     <h3 class="font-semibold text-xl mb-2">
+      Leasing &amp; Financing of Printers
+     </h3>
+     <p>
+      PrinterSpace has the expertise position to assist leasing, rental, and finance options for most printers, including commercial leasing options. Leasing plans are typically configured with payment terms and conditions to suit your commercial agreement with the vendor.
+     </p>
+    </div>
+   </div>
 
+  </section>
 
-                                        <!-- Details Section -->
-                                        <section class="details">
-                                          <h2 style="margin-bottom: 16px;">Getting to know your Printer by Understanding How it Works </h2>
+  <!-- Why Choose Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-12 flex flex-col md:flex-row items-center gap-10">
+   <div class="md:w-1/2 flex justify-center md:justify-start">
+    <img alt="White HP printer front view" class="max-w-full h-auto" height="300" loading="lazy" src="https://storage.googleapis.com/a1aa/image/f3a3b240-42f9-4936-219c-a2acc38ff86f.jpg" width="400"/>
+   </div>
+   <div class="md:w-1/2 text-[13px]">
+    <h3 class="text-blue-600 text-2xl font-semibold mb-3">
+     Why Choose Our Services?
+    </h3>
+    <ul class="list-disc list-inside space-y-2 mb-4">
+     <li>
+      Experienced Customer service and advice, expertise with the printing industry and dedicated to providing the original quality guarantees and warranties.
+     </li>
+     <li>
+      Convenience We stock the used and new, expert installation, and most suitable printers to support for business customers.
+     </li>
+     <li>
+      Customer Satisfaction We will provide you with a printer and consumables, training, ongoing support, and preventative maintenance.
+     </li>
+     <li>
+      We have an all-printing equipment warranty. PrinterSpace is ready to assist. We are here to help printing for you and others - costs do depend on the individual situation.
+     </li>
+    </ul>
+    <a class="text-blue-600 text-sm font-semibold underline" href="#">
+     Contact More
+    </a>
+   </div>
+  </section>
 
-                                          <div>
-                                            <img src="https://blog.inktonerstore.com/wp-content/uploads/2016/02/laptop-1016287_960_720.jpg" height="100%"
-                                              width="100%" alt="">
-                                          </div>
-                                          <p>
-                                            A Printer is an electromechanical device that accepts text and graphical data from a computer and generates the
-                                            information into a physical form. By knowing what type of printer you have, you will also be able to understand
-                                            how it works. It is broadly categorized into two (2) the Impact and Non-impact.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b>Impact Printers -</b> are printers in which a key makes contact with an inked ribbon to mark the paper.The
-                                            following are examples of Impact printers.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b> Daisy wheel –</b> This type of printer works very similar to typewriters. The heart of these printers is a
-                                            circular mechanism known as daisy wheel since it looks like a daisy and numeric characters, symbols and texts
-                                            are molded on each petal on the circumference of the circle. With the help of a servo motor, the daisy wheel
-                                            rotates rapidly and pauses to allow the printing hammer to strike a “petal” containing a character against the
-                                            ribbon producing a print on the paper. Daisy Wheel Printers speed is slow typically 25-55 characters per second.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b> Dot matrix –</b> Dot matrix printer uses a print head that contains 9 to 24 pins that produces patterns of
-                                            dots to form individual characters. The pins moves back and forth or up and down motion and prints by impact,
-                                            striking an inked ribbon. This printer, determined by the number of pins can produce a much better print quality
-                                            with a speed that can vary from 50 to 500 characters per second. Dot matrix printers can print to multi-page
-                                            forms that something laser or inkjet printers cannot do.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b> Chain – </b>Like the word chain, a chain printer has a set of numbers and characters arranged in a
-                                            continuous loop that resembles a chainsaw blade. A circuit inside the printer detects if a correct character
-                                            appears, then a row of hammers strike the page, pressing the paper against a ribbon. The chain keeps rotating
-                                            until everything is printed. It is faster than a dot matrix printer which it speeds up to several hundred lines
-                                            per minute.
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b>Non-impact Printers -</b> are printers that do not use a striking device in order to print and they are much
-                                            quieter than the impact printers. These are some of non-impact printers.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b> Ink-jet – </b> Ink-jet printers produce a high quality graphics and texts. It works the same as dot matrix
-                                            printers which the characters are formed with little dots, but instead of using inked ribbon, an ink-jet printer
-                                            sprays ink at a sheet of paper. Depending on the nature of the hard copy, an inkjet printer can produce up to
-                                            several hundred pages until the ink runs out. Because of its inexpensiveness and satisfactory performance, it is
-                                            much popular for personal computer users.
-                                            <br>
-                                            <br>
-                                          </p>
+  <!-- Disclaimer -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 text-[11px] text-gray-700 leading-tight mb-12">
+   <p>
+    Disclaimer: PrinterSpace clearly states that the registered trademarks, brand names, company names, and product names are the property of their respective owners and are used solely as a reference for a brand or well-known name. PrinterSpace is not an official printer or consumable brand or a logo owner. The information on this website is provided "as is" and on an "as available" basis and may change at any time without prior notice. PrinterSpace does not warrant or guarantee the accuracy or completeness of the information on this website and is not responsible for any damages or losses resulting from the use of this website. PrinterSpace is not responsible for the content of any third-party websites linked to or from this website.
+   </p>
+  </section>
 
-                                          <p>
-                                            <b>Laser –</b> A laser printer uses the same technology as photocopy machines. It produces a very high quality
-                                            text and graphics. A laser beam is directed at a mirror which bounces the beam on a light-sensitive drum. This
-                                            light-sensitive drum has a special coating on it which attracts toner or an ink powder. The toner is then
-                                            transferred to the paper printing the letters or graphics and a hot roller bonds them together.
-                                            <br>
-                                            <br>
-                                          </p>
-                                        </section>
+  <!-- Footer -->
+  <footer class="bg-black text-white py-10 px-4 sm:px-6 md:px-10">
+   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div>
+     <p class="text-blue-600 text-[12px] font-semibold mb-3">
+     Printer Support © 2025. All rights reserved.
+      support@printersupport.com |  +1 855 673 5010
+     </p>
+     <p class="text-[9px] leading-tight">
+      Registered trademark printing supplies, PrinterSpace aims to offer the best stream in your mind experience by supplying a quality product and the best service solution.
+     </p>
+    </div>
+    <div>
+     <h4 class="font-semibold mb-3 text-[10px]">
+      Usefull Links
+     </h4>
+     <ul class="text-[9px] space-y-1">
+      <li>
+       <a class="hover:underline" href="#">
+        Privacy Policy
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#about">
+        About Us
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Terms &amp; Conditions
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div>
+     <h4 class="font-semibold mb-3 text-[10px]">
+      Quick Links
+     </h4>
+     <ul class="text-[9px] space-y-1">
+      <li>
+       <a class="hover:underline" href="#">
+        Buy Printers
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        Buy Toner Printer
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#about">
+        About Us
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="contact.html">
+        Contact Us
+       </a>
+      </li>
+      <li>
+       <a class="hover:underline" href="#">
+        My Account
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div>
+     <h4 class="font-semibold mb-3 text-[10px]">
+      Contact Info
+     </h4>
+     <ul class="text-[9px] space-y-2">
+      <li>
+       <i class="fas fa-phone-alt mr-2">
+       </i>
+       +1 855 673 5010
+      </li>
+      <li>
+       <i class="fas fa-envelope mr-2">
+       </i>
+      support@printersupport.com
+      </li>
+      <li>
+       <i class="fas fa-map-marker-alt mr-2">
+       </i>
+       123, Tech Innovation Park, Sector 21, New Delhi, India
+      </li>
+     </ul>
+    </div>
+   </div>
+  </footer>
+ </body>
 
-                                        <!-- Details Section -->
-                                        <section class="details">
-                                          <h2>How Printers Work</h2>
-                                          <p>
-                                            Printers are devices that accept text and graphic output from a computer and transfer the information to paper,
-                                            usually to standard size sheets of paper. Most printers today are either inkjet or laser printers.
+ <script>
 
-                                            Inkjet printers spray tiny droplets of ink directly onto the paper. They're best for photos and detailed color
-                                            work. Laser printers use a laser beam to produce an image on a drum, which is then transferred to paper using
-                                            toner and heat — ideal for high-speed, high-volume printing.
-                                          </p>
-                                          <p>
-                                            The printer also includes auto duplex printing, quiet mode for silent operation, and AI-assisted diagnostics to
-                                            automatically notify
-                                            users of maintenance needs. Trusted by over 50,000 businesses worldwide.
-                                          </p>
-                                        </section>
+ const toggleBtn = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
 
-
-
-                                        <!-- About Section -->
-                                        <section class="details" id="about">
-
-                                          <h2>About Us</h2>
-                                          <p>Welcome to SmartPrint 5000!
-                                            We are passionate about redefining printing solutions by offering cutting-edge printers that blend speed,
-                                            precision, and eco-friendly technology.
-                                            Our mission is to make smart printing accessible to everyone — from home users to businesses.
-                                            With SmartPrint 5000, you get performance, reliability, and innovation in one package.
-                                          </p>
-                                          <br><br>
-
-                                          <p>
-                                            At <strong>SmartPrint 5000</strong>, we are dedicated to revolutionizing the printing experience by offering
-                                            cutting-edge, user-friendly, and eco-conscious printing solutions for individuals, homes, and businesses.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            Established with a passion for innovation and customer satisfaction, SmartPrint 5000 has quickly grown into a
-                                            trusted name in the printing industry. Our journey began with a simple mission: to make advanced printing
-                                            technology accessible to everyone, regardless of their technical background or business size.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            With years of research and collaboration with leading technology experts, we have developed a line of printers
-                                            that combine speed, quality, and sustainability. Our products are known for their intuitive interfaces, wireless
-                                            capabilities, and low energy consumption.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            Beyond our products, we pride ourselves on our exceptional customer support, ensuring that every customer
-                                            receives the assistance they need to get the best out of their printing solutions.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            Join our community of satisfied customers and experience the future of smart printing with SmartPrint 5000.
-                                          </p>
-                                        </section>
-
-
-                                        <!-- Privacy Section -->
-                                        <section class="details" id="privacy">
-
-                                          <h2>Privacy Policy</h2>
-                                          <p>At SmartPrint 5000, we respect your privacy.
-                                            We only collect personal data necessary to provide and improve our services, such as email addresses and usage
-                                            analytics.
-                                            We never sell or share your data with third parties without your explicit consent.
-                                            By using our website or products, you agree to our data collection practices.
-                                            For more details, please contact our support team.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            At <strong>SmartPrint 5000</strong>, your privacy is important to us. This Privacy Policy outlines how we
-                                            collect, use, and protect your personal information when you visit our website or use our services.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Information We Collect:</strong> We may collect personal information such as your name, email address,
-                                            phone number, and billing information when you make a purchase, contact us, or subscribe to our newsletter.
-                                            Additionally, we may collect non-personal information like browser type, IP address, and usage patterns through
-                                            cookies and analytics tools.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>How We Use Your Information:</strong> Your information helps us provide and improve our services,
-                                            process orders, send important updates, marketing communications (with your consent), and ensure website
-                                            functionality and security.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Data Security:</strong> We implement industry-standard security measures, including encryption and
-                                            secure servers, to protect your data from unauthorized access, disclosure, or misuse.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Third-Party Services:</strong> We may use trusted third-party services such as payment processors and
-                                            analytics providers. These services are required to follow strict confidentiality agreements and are used solely
-                                            to support our operations.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Your Rights:</strong> You have the right to access, update, or request deletion of your personal
-                                            information. You can also opt-out of receiving promotional emails at any time.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Policy Updates:</strong> We reserve the right to modify this Privacy Policy at any time. Updates will be
-                                            posted on this page with a revised effective date.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            For any privacy concerns or inquiries, feel free to <a href="#contact">contact us</a>.
-                                          </p>
-                                          <br>
-                                        </section>
-
-                                        <!-- contact Section -->
-                                        <section class="details" id="contact">
-                                          <h2>Contact Us</h2>
-                                          <p>We'd love to hear from you! You can reach us through the following contact details or use the form below to
-                                            send us a message.</p>
-
-                                          <div class="contact-info">
-                                            <p><strong>Address:</strong> 123, Tech Innovation Park, Sector 21, New Delhi, India</p>
-                                            <p href=""><strong>Phone:</strong> +1 844 610 5999</p>
-                                          </div>
-
-                                        </section>
-
-
-                                        <!-- Features Cards -->
-                                        <section class="features">
-                                          <div class="card">
-                                            <h3>Ultra-Fast Printing</h3>
-                                            <p>Print up to 35 pages per minute with professional laser-like quality.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>Wireless Connectivity</h3>
-                                            <p>Supports Wi-Fi, Bluetooth, and LAN connections for easy printing from any device.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>EcoTank Technology</h3>
-                                            <p>Save up to 70% ink with refillable tank systems. Good for your pocket and the planet.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>Smart Touch Panel</h3>
-                                            <p>Operate with a sleek 3.5" LCD touchscreen – print, scan, or copy with one tap.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>Mobile & Cloud Print</h3>
-                                            <p>Print directly from your phone with AirPrint, Google Cloud Print, or email-to-print.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>OS Compatibility</h3>
-                                            <p>Works seamlessly on Windows, macOS, Linux & ChromeOS.</p>
-                                          </div>
-                                        </section>
-
-
-                  `;
-                }
-
-                if(data == '#about'){
-                    page.innerHTML = `
-                                        <section class="details cmargin"  id="about">
-
-                                              <h2>About Us</h2>
-                                              <p>Welcome to SmartPrint 5000!
-                                                We are passionate about redefining printing solutions by offering cutting-edge printers that blend speed,
-                                                precision, and eco-friendly technology.
-                                                Our mission is to make smart printing accessible to everyone — from home users to businesses.
-                                                With SmartPrint 5000, you get performance, reliability, and innovation in one package.
-                                              </p>
-                                              <br><br>
-
-                                              <p>
-                                                At <strong>SmartPrint 5000</strong>, we are dedicated to revolutionizing the printing experience by offering
-                                                cutting-edge, user-friendly, and eco-conscious printing solutions for individuals, homes, and businesses.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Established with a passion for innovation and customer satisfaction, SmartPrint 5000 has quickly grown into a
-                                                trusted name in the printing industry. Our journey began with a simple mission: to make advanced printing
-                                                technology accessible to everyone, regardless of their technical background or business size.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                With years of research and collaboration with leading technology experts, we have developed a line of printers
-                                                that combine speed, quality, and sustainability. Our products are known for their intuitive interfaces, wireless
-                                                capabilities, and low energy consumption.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Beyond our products, we pride ourselves on our exceptional customer support, ensuring that every customer
-                                                receives the assistance they need to get the best out of their printing solutions.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Join our community of satisfied customers and experience the future of smart printing with SmartPrint 5000.
-                                              </p>
-                                            </section>
-
-                    
-                    `;
-                }
-                
-                if(data == '#privacy'){
-                      page.innerHTML = `
-                                          <!-- Privacy Section -->
-                                          <section class="details pmargin" id="privacy">
-
-                                            <h2>Privacy Policy</h2>
-                                            <p>At SmartPrint 5000, we respect your privacy.
-                                              We only collect personal data necessary to provide and improve our services, such as email addresses and usage
-                                              analytics.
-                                              We never sell or share your data with third parties without your explicit consent.
-                                              By using our website or products, you agree to our data collection practices.
-                                              For more details, please contact our support team.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              At <strong>SmartPrint 5000</strong>, your privacy is important to us. This Privacy Policy outlines how we
-                                              collect, use, and protect your personal information when you visit our website or use our services.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Information We Collect:</strong> We may collect personal information such as your name, email address,
-                                              phone number, and billing information when you make a purchase, contact us, or subscribe to our newsletter.
-                                              Additionally, we may collect non-personal information like browser type, IP address, and usage patterns through
-                                              cookies and analytics tools.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>How We Use Your Information:</strong> Your information helps us provide and improve our services,
-                                              process orders, send important updates, marketing communications (with your consent), and ensure website
-                                              functionality and security.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Data Security:</strong> We implement industry-standard security measures, including encryption and
-                                              secure servers, to protect your data from unauthorized access, disclosure, or misuse.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Third-Party Services:</strong> We may use trusted third-party services such as payment processors and
-                                              analytics providers. These services are required to follow strict confidentiality agreements and are used solely
-                                              to support our operations.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Your Rights:</strong> You have the right to access, update, or request deletion of your personal
-                                              information. You can also opt-out of receiving promotional emails at any time.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              <strong>Policy Updates:</strong> We reserve the right to modify this Privacy Policy at any time. Updates will be
-                                              posted on this page with a revised effective date.
-                                            </p>
-                                            <br>
-                                            <p>
-                                              For any privacy concerns or inquiries, feel free to <a href="#contact">contact us</a>.
-                                            </p>
-                                            <br>
-                                          </section>
-
-                                          <!-- contact Section -->
-                                          <section class="details" id="contact">
-                                            <h2>Contact Us</h2>
-                                            <p>We'd love to hear from you! You can reach us through the following contact details or use the form below to
-                                              send us a message.</p>
-
-                                            <div class="contact-info">
-                                              <p><strong>Address:</strong> 123, Tech Innovation Park, Sector 21, New Delhi, India</p>
-                                              <p href=""><strong>Phone:</strong> +1 844 610 5999</p>
-                                            </div>
-
-                                          </section>
-                      
-                      `;
-                }
-        }
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      icon.className = mobileMenu.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
     });
+  
+  
 
-    var footerLinks = document.querySelectorAll('.flinks a')
-
-    
-     footerLinks.forEach(element => {
-        element.onclick = () => {
-         const data = element.getAttribute('href');
-     
-                if(data == '#'){
-                  page.innerHTML = `
-                                                            <!-- Header -->
-                                        <header>
-                                          <h1 style="padding-top:24px ;">Welcome to Printer Support</h1>
-                                          <p>Your Ultimate Smart Printing Companion</p>
-                                        </header>
-
-                                        <!-- Hero -->
-                                        <section class="hero">
-                                          <h2>Next-Level Printing Starts Here</h2>
-                                          <p>Blazing speed, crystal clarity, eco-friendly design – all packed in one smart printer made for homes and
-                                            offices alike.</p>
-                                        </section>
-
-
-                                        <!-- Details Section -->
-                                        <section class="details">
-                                          <h2 style="margin-bottom: 16px;">Getting to know your Printer by Understanding How it Works </h2>
-
-                                          <div>
-                                            <img src="https://blog.inktonerstore.com/wp-content/uploads/2016/02/laptop-1016287_960_720.jpg" height="100%"
-                                              width="100%" alt="">
-                                          </div>
-                                          <p>
-                                            A Printer is an electromechanical device that accepts text and graphical data from a computer and generates the
-                                            information into a physical form. By knowing what type of printer you have, you will also be able to understand
-                                            how it works. It is broadly categorized into two (2) the Impact and Non-impact.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b>Impact Printers -</b> are printers in which a key makes contact with an inked ribbon to mark the paper.The
-                                            following are examples of Impact printers.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b> Daisy wheel –</b> This type of printer works very similar to typewriters. The heart of these printers is a
-                                            circular mechanism known as daisy wheel since it looks like a daisy and numeric characters, symbols and texts
-                                            are molded on each petal on the circumference of the circle. With the help of a servo motor, the daisy wheel
-                                            rotates rapidly and pauses to allow the printing hammer to strike a “petal” containing a character against the
-                                            ribbon producing a print on the paper. Daisy Wheel Printers speed is slow typically 25-55 characters per second.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b> Dot matrix –</b> Dot matrix printer uses a print head that contains 9 to 24 pins that produces patterns of
-                                            dots to form individual characters. The pins moves back and forth or up and down motion and prints by impact,
-                                            striking an inked ribbon. This printer, determined by the number of pins can produce a much better print quality
-                                            with a speed that can vary from 50 to 500 characters per second. Dot matrix printers can print to multi-page
-                                            forms that something laser or inkjet printers cannot do.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b> Chain – </b>Like the word chain, a chain printer has a set of numbers and characters arranged in a
-                                            continuous loop that resembles a chainsaw blade. A circuit inside the printer detects if a correct character
-                                            appears, then a row of hammers strike the page, pressing the paper against a ribbon. The chain keeps rotating
-                                            until everything is printed. It is faster than a dot matrix printer which it speeds up to several hundred lines
-                                            per minute.
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b>Non-impact Printers -</b> are printers that do not use a striking device in order to print and they are much
-                                            quieter than the impact printers. These are some of non-impact printers.
-                                            <br>
-                                            <br>
-                                          </p>
-                                          <p>
-                                            <b> Ink-jet – </b> Ink-jet printers produce a high quality graphics and texts. It works the same as dot matrix
-                                            printers which the characters are formed with little dots, but instead of using inked ribbon, an ink-jet printer
-                                            sprays ink at a sheet of paper. Depending on the nature of the hard copy, an inkjet printer can produce up to
-                                            several hundred pages until the ink runs out. Because of its inexpensiveness and satisfactory performance, it is
-                                            much popular for personal computer users.
-                                            <br>
-                                            <br>
-                                          </p>
-
-                                          <p>
-                                            <b>Laser –</b> A laser printer uses the same technology as photocopy machines. It produces a very high quality
-                                            text and graphics. A laser beam is directed at a mirror which bounces the beam on a light-sensitive drum. This
-                                            light-sensitive drum has a special coating on it which attracts toner or an ink powder. The toner is then
-                                            transferred to the paper printing the letters or graphics and a hot roller bonds them together.
-                                            <br>
-                                            <br>
-                                          </p>
-                                        </section>
-
-                                        <!-- Details Section -->
-                                        <section class="details">
-                                          <h2>How Printers Work</h2>
-                                          <p>
-                                            Printers are devices that accept text and graphic output from a computer and transfer the information to paper,
-                                            usually to standard size sheets of paper. Most printers today are either inkjet or laser printers.
-
-                                            Inkjet printers spray tiny droplets of ink directly onto the paper. They're best for photos and detailed color
-                                            work. Laser printers use a laser beam to produce an image on a drum, which is then transferred to paper using
-                                            toner and heat — ideal for high-speed, high-volume printing.
-                                          </p>
-                                          <p>
-                                            The printer also includes auto duplex printing, quiet mode for silent operation, and AI-assisted diagnostics to
-                                            automatically notify
-                                            users of maintenance needs. Trusted by over 50,000 businesses worldwide.
-                                          </p>
-                                        </section>
-
-
-
-                                        <!-- About Section -->
-                                        <section class="details" id="about">
-
-                                          <h2>About Us</h2>
-                                          <p>Welcome to SmartPrint 5000!
-                                            We are passionate about redefining printing solutions by offering cutting-edge printers that blend speed,
-                                            precision, and eco-friendly technology.
-                                            Our mission is to make smart printing accessible to everyone — from home users to businesses.
-                                            With SmartPrint 5000, you get performance, reliability, and innovation in one package.
-                                          </p>
-                                          <br><br>
-
-                                          <p>
-                                            At <strong>SmartPrint 5000</strong>, we are dedicated to revolutionizing the printing experience by offering
-                                            cutting-edge, user-friendly, and eco-conscious printing solutions for individuals, homes, and businesses.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            Established with a passion for innovation and customer satisfaction, SmartPrint 5000 has quickly grown into a
-                                            trusted name in the printing industry. Our journey began with a simple mission: to make advanced printing
-                                            technology accessible to everyone, regardless of their technical background or business size.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            With years of research and collaboration with leading technology experts, we have developed a line of printers
-                                            that combine speed, quality, and sustainability. Our products are known for their intuitive interfaces, wireless
-                                            capabilities, and low energy consumption.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            Beyond our products, we pride ourselves on our exceptional customer support, ensuring that every customer
-                                            receives the assistance they need to get the best out of their printing solutions.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            Join our community of satisfied customers and experience the future of smart printing with SmartPrint 5000.
-                                          </p>
-                                        </section>
-
-
-                                        <!-- Privacy Section -->
-                                        <section class="details" id="privacy">
-
-                                          <h2>Privacy Policy</h2>
-                                          <p>At SmartPrint 5000, we respect your privacy.
-                                            We only collect personal data necessary to provide and improve our services, such as email addresses and usage
-                                            analytics.
-                                            We never sell or share your data with third parties without your explicit consent.
-                                            By using our website or products, you agree to our data collection practices.
-                                            For more details, please contact our support team.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            At <strong>SmartPrint 5000</strong>, your privacy is important to us. This Privacy Policy outlines how we
-                                            collect, use, and protect your personal information when you visit our website or use our services.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Information We Collect:</strong> We may collect personal information such as your name, email address,
-                                            phone number, and billing information when you make a purchase, contact us, or subscribe to our newsletter.
-                                            Additionally, we may collect non-personal information like browser type, IP address, and usage patterns through
-                                            cookies and analytics tools.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>How We Use Your Information:</strong> Your information helps us provide and improve our services,
-                                            process orders, send important updates, marketing communications (with your consent), and ensure website
-                                            functionality and security.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Data Security:</strong> We implement industry-standard security measures, including encryption and
-                                            secure servers, to protect your data from unauthorized access, disclosure, or misuse.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Third-Party Services:</strong> We may use trusted third-party services such as payment processors and
-                                            analytics providers. These services are required to follow strict confidentiality agreements and are used solely
-                                            to support our operations.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Your Rights:</strong> You have the right to access, update, or request deletion of your personal
-                                            information. You can also opt-out of receiving promotional emails at any time.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            <strong>Policy Updates:</strong> We reserve the right to modify this Privacy Policy at any time. Updates will be
-                                            posted on this page with a revised effective date.
-                                          </p>
-                                          <br>
-                                          <p>
-                                            For any privacy concerns or inquiries, feel free to <a href="#contact">contact us</a>.
-                                          </p>
-                                          <br>
-                                        </section>
-
-                                        <!-- contact Section -->
-                                        <section class="details" id="contact">
-                                          <h2>Contact Us</h2>
-                                          <p>We'd love to hear from you! You can reach us through the following contact details or use the form below to
-                                            send us a message.</p>
-
-                                          <div class="contact-info">
-                                            <p><strong>Address:</strong> 123, Tech Innovation Park, Sector 21, New Delhi, India</p>
-                                            <p href=""><strong>Phone:</strong> +1 844 610 5999</p>
-                                          </div>
-
-                                        </section>
-
-
-                                        <!-- Features Cards -->
-                                        <section class="features">
-                                          <div class="card">
-                                            <h3>Ultra-Fast Printing</h3>
-                                            <p>Print up to 35 pages per minute with professional laser-like quality.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>Wireless Connectivity</h3>
-                                            <p>Supports Wi-Fi, Bluetooth, and LAN connections for easy printing from any device.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>EcoTank Technology</h3>
-                                            <p>Save up to 70% ink with refillable tank systems. Good for your pocket and the planet.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>Smart Touch Panel</h3>
-                                            <p>Operate with a sleek 3.5" LCD touchscreen – print, scan, or copy with one tap.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>Mobile & Cloud Print</h3>
-                                            <p>Print directly from your phone with AirPrint, Google Cloud Print, or email-to-print.</p>
-                                          </div>
-                                          <div class="card">
-                                            <h3>OS Compatibility</h3>
-                                            <p>Works seamlessly on Windows, macOS, Linux & ChromeOS.</p>
-                                          </div>
-                                        </section>
-
-
-                  `;
-                }
-
-                if(data == '#about'){
-                    page.innerHTML = `
-                                        <section class="details cmargin"  id="about">
-
-                                              <h2>About Us</h2>
-                                              <p>Welcome to SmartPrint 5000!
-                                                We are passionate about redefining printing solutions by offering cutting-edge printers that blend speed,
-                                                precision, and eco-friendly technology.
-                                                Our mission is to make smart printing accessible to everyone — from home users to businesses.
-                                                With SmartPrint 5000, you get performance, reliability, and innovation in one package.
-                                              </p>
-                                              <br><br>
-
-                                              <p>
-                                                At <strong>SmartPrint 5000</strong>, we are dedicated to revolutionizing the printing experience by offering
-                                                cutting-edge, user-friendly, and eco-conscious printing solutions for individuals, homes, and businesses.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Established with a passion for innovation and customer satisfaction, SmartPrint 5000 has quickly grown into a
-                                                trusted name in the printing industry. Our journey began with a simple mission: to make advanced printing
-                                                technology accessible to everyone, regardless of their technical background or business size.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                With years of research and collaboration with leading technology experts, we have developed a line of printers
-                                                that combine speed, quality, and sustainability. Our products are known for their intuitive interfaces, wireless
-                                                capabilities, and low energy consumption.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Beyond our products, we pride ourselves on our exceptional customer support, ensuring that every customer
-                                                receives the assistance they need to get the best out of their printing solutions.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Join our community of satisfied customers and experience the future of smart printing with SmartPrint 5000.
-                                              </p>
-                                            </section>
-
-                    
-                    `;
-                }
-                
-                if(data == '#privacy'){
-                  page.innerHTML = `
-                  
-                  
-                          <p>
-                                                At <strong>SmartPrint 5000</strong>, we are dedicated to revolutionizing the printing experience by offering
-                                                cutting-edge, user-friendly, and eco-conscious printing solutions for individuals, homes, and businesses.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Established with a passion for innovation and customer satisfaction, SmartPrint 5000 has quickly grown into a
-                                                trusted name in the printing industry. Our journey began with a simple mission: to make advanced printing
-                                                technology accessible to everyone, regardless of their technical background or business size.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                With years of research and collaboration with leading technology experts, we have developed a line of printers
-                                                that combine speed, quality, and sustainability. Our products are known for their intuitive interfaces, wireless
-                                                capabilities, and low energy consumption.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Beyond our products, we pride ourselves on our exceptional customer support, ensuring that every customer
-                                                receives the assistance they need to get the best out of their printing solutions.
-                                              </p>
-                                              <br>
-                                              <p>
-                                                Join our community of satisfied customers and experience the future of smart printing with SmartPrint 5000.
-                                              </p>
-                  
-                  `;
-                }
-        }
-    });
-  </script>
-
-</body>
-
+   
+ </script>
 </html>
