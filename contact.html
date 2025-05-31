@@ -4,8 +4,399 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Support</title>
+  <!-- <link rel="stylesheet" href="index.css"> -->
+   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+   <script src="https://cdn.tailwindcss.com"></script>
+  
 
-  <link rel="stylesheet" href="index.css">
+  <style>
+    
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+
+
+ .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .features {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #007BFF;
+    }
+
+    .details {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      line-height: 1.6;
+    }
+
+
+
+
+    .modal-content .header {
+      background-color: #002c8b;
+      padding: 20px;
+      color: white;
+    }
+
+    .modal-content .header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .modal-content .card h2,
+      .modal-content .contactContainer h2 {
+        font-size: 18px;
+      }
+
+      .modal-content .card p,
+      .modal-content .contactContainer p {
+        font-size: 14px;
+      }
+
+      .features .card {
+        margin: 0 auto;
+      }
+
+      .modal-content .contactContainer {
+        margin-top: -40px;
+      }
+
+      .modal-content .contactContainer button {
+        padding: 6px;
+        width: 180px;
+        gap: 0px;
+        font-size: 12px;
+      }
+   
+    }
+
+     .logo {
+      height: 40px;
+      margin-bottom: 10px;
+    }
+  .hero {
+      background-color: #e6eefc;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      padding: 10px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+
+    
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+
+        /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 30px;
+      border: 1px solid #ccc;
+      width: 90%;
+      max-width: 800px;
+      text-align: center;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      color: #002c8b;
+      margin-bottom: 15px;
+    }
+
+    .modal-content .button {
+      margin-top: 15px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  /* for model */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .modal-content .header {
+      background-color: #002c8b;
+      padding: 20px;
+      color: white;
+    }
+
+    .modal-content .header .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .modal-content .card h2,
+      .modal-content .contactContainer h2 {
+        font-size: 18px;
+      }
+
+      .modal-content .card p,
+      .modal-content .contactContainer p {
+        font-size: 14px;
+      }
+
+      .features .card {
+        margin: 0 auto;
+      }
+
+      .modal-content .contactContainer {
+        margin-top: -40px;
+      }
+
+      .modal-content .contactContainer button {
+        padding: 6px;
+        width: 180px;
+        gap: 0px;
+        font-size: 12px;
+      }
+    }
+ .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 300px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+
+    /* button for call */
+    /* From Uiverse.io by adeladel522 */
+    .button {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      padding-block: 0.5rem;
+      padding-inline: 1.25rem;
+      background-color: rgb(0 107 179);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #ffff;
+      gap: 10px;
+      font-weight: bold;
+      border: 3px solid #ffffff4d;
+      outline: none;
+      overflow: hidden;
+      font-size: 15px;
+      margin: 0 auto;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      border-color: #fff9;
+    }
+
+    .button:hover .icon {
+      transform: translate(4px);
+    }
+
+    .button:hover::before {
+      animation: shine 1.5s ease-out infinite;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100%;
+      background-image: linear-gradient(120deg,
+          rgba(255, 255, 255, 0) 30%,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0) 70%);
+      top: 0;
+      left: -100px;
+      opacity: 0.6;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -100px;
+      }
+
+      60% {
+        left: 100%;
+      }
+
+      to {
+        left: 100%;
+      }
+    }
+
+
+    .contactContainer {
+      text-align: center;
+      padding: 30px;
+      margin: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contactContainer h2 {
+      color: #0056b3;
+    }
+
+    .contactContainer p {
+      color: #555;
+
+    }
+
+    .cmargin{
+      margin-top: 0;
+      padding-top:180px;
+    }
+
+    .pmargin{
+      margin-top: 0;
+      padding-top:80px;
+    }
+
+    .abtn{
+      outline: none;
+      border: none;
+      background-color: transparent;
+      color: white;
+      font-size: 16px;
+    }
+    .abtn:hover{
+      text-decoration: underline;
+      cursor: pointer;
+    }
+.zin{
+  z-index: 9999 !important;
+}
+  </style>
+
+
 </head>
 <body>
   
@@ -90,23 +481,37 @@
 </div>
 
 
-   <nav>
-    <div class="nav-container">
-      <div class="container">
-        <!-- <img src="https://in-media.apjonlinecdn.com/logo/stores/1/LogoHPblue_1.svg" height="55px" width="55px" class="nav-logo" style="margin: 0 auto" alt="HP Logo" class="logo" /> -->
 
-      </div>
-      <div class="nav-toggle" onclick="toggleMenu()">☰</div>
-      <div class="nav-links" id="navLinks">
-        <a href="#">Home</a>
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#about">About Us</a>
-        <a  href="contact.html" target="_blank" style="color: white; text-decoration: none;">
-          <button class="abtn"  onclick="showModal()"> Contact Us</button>
-        </a>
-      </div>
-    </div>
+  <header class="flex items-center justify-between px-4 sm:px-6 md:px-10 py-3 border-b border-gray-200">
+    <!-- Logo -->
+    <!-- <div class="flex items-center space-x-1">
+      <span class="text-blue-600 font-bold text-lg">Printer</span>
+      <span class="font-bold text-lg">Space</span>
+    </div> -->
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+      <a class="text-blue-600" href="#">Home</a>
+      <a class="hover:text-gray-700" href="#shop">Our Shop</a>
+      <a class="hover:text-gray-700" href="#about">About Us</a>
+      <a class="hover:text-gray-700" href="#service">Our Services</a>
+      <a class="hover:text-gray-700" href="contact.html">Contact Us</a>
     </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-toggle" class="md:hidden mx-auto text-gray-700 text-2xl">
+      <i id="menu-icon" class="fas fa-bars"></i>
+    </button>
+  </header>
+
+  <!-- Mobile Nav Menu -->
+  <div id="mobile-menu" class="menu-transition md:hidden px-4 py-4 space-y-4 text-sm font-semibold border-b border-gray-200">
+    <a class="block text-blue-600" href="#">Home</a>
+    <a class="block hover:text-gray-700" href="#shop">Our Shop</a>
+    <a class="block hover:text-gray-700" href="about">About Us</a>
+    <a class="block hover:text-gray-700" href="service">Our Services</a>
+    <a class="block hover:text-gray-700" href="contact.html">Contact Us</a>
+  </div>
 
 
     <!-- contact Section -->
@@ -117,10 +522,11 @@
 
       <div class="contact-info">
         <p><strong>Address:</strong> 123, Tech Innovation Park, Sector 21, New Delhi, India</p>
-        <p href=""><strong>Phone:</strong> +1 855 673 5010‬ </p>
+        <p href=""><strong>Phone:</strong> +1 855 673 5010 </p>
       </div>
 
     </section>
+
   <script>
     window.onload = function () {
       document.getElementById("supportModal").style.display = "block";
